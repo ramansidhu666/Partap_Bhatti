@@ -1,0 +1,556 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HomeMaster.Master.cs" Inherits="Property.HomeMaster" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
+<%@ Register TagName="FeaturedProperties" TagPrefix="uc" Src="~/Controls/FeaturedProperties.ascx" %>
+<%@ Register TagName="Logo" TagPrefix="uc" Src="~/Controls/logo.ascx" %>
+<%@ Register TagName="SearchBar" TagPrefix="uc" Src="~/Controls/SearchBar.ascx" %>
+<%@ Register TagName="ContactInfo" TagPrefix="uc" Src="~/Controls/ContactInfo.ascx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link id="favicon" runat="server" rel="shortcut icon" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0)" />
+    <title><asp:Literal ID="siteTitle" runat="server"></asp:Literal></title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="js/jquery_009.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/media-queries.css" rel="stylesheet" />
+    <link href="css/font.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/styleBackup.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="slider/css/media-queries.css" rel="stylesheet" />
+    <link href="css/nivo-slider.css" rel="stylesheet" />
+    <link href="css/shortcodes.css" rel="stylesheet" />
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .contact_number {
+            float: left;
+            height: 100px;
+            padding: 20px;
+            position: absolute;
+            top: 512px;
+            z-index: 99999;
+        }
+
+            .contact_number span {
+                color: white;
+                font-size: 24px;
+            }
+
+        #Homebanner {
+            float: left;
+            margin-bottom: 0px;
+            width: 100%;
+        }
+
+        #map {
+            border: 2px solid #3f6f55;
+            height: 229px;
+            width: 90%;
+        }
+    </style>
+    <style type="text/css">
+        blockquote {
+            clear: both;
+            font-style: italic;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 10px 10px 0 50px;
+            quotes: none;
+            background: url(https://dl.dropbox.com/u/96099766/RotatingTestimonial/open-quote.png) 0 0 no-repeat;
+            border: 0px;
+            font-size: 120%;
+            line-height: 200%;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server" id="form">
+        <%--<asp:ScriptManager ID="scrmngr" EnablePageMethods="true" runat="server">
+    </asp:ScriptManager>--%>
+        <!--header start-->
+        <div class="frnt_menu_sct_bg">
+            <div class="container">
+                <div class="top_menu_bg">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="menu_section">
+                            <asp:Literal ID="dynamicmenus" runat="server"></asp:Literal>
+                        </div>
+                        <script type="text/javascript" src="../js/script.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner_sctn">
+            <div id="Homebanner" runat="server">
+                <div class="banner_section">
+                    <div class="slider-wrapper theme-default">
+                        <div id="slider" class="nivoSlider">
+                            <asp:Literal ID="ltrImgsf" runat="server"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $('#slider').nivoSlider();
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="header_bg">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <div class="frnt_logo">
+                        <uc:Logo ID="logo" runat="server" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="header_detail">
+                        <h2>
+                            <asp:Label ID="lblBrkrOneName" CssClass="gjfdhg" runat="server"></asp:Label>
+                        </h2>
+                        <p>Sales Representative</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="header_detail1">
+                        <h5>
+                            <a href="tel:647-203-2103">
+                                <asp:Label ID="lblphn" runat="server"></asp:Label></a></h5>
+                        <h5>
+                            <a href="mailto:Partapbhatti@gmail.com">
+                                <asp:Label ID="lblemailid" runat="server"></asp:Label></a></h5>
+                        <ul>
+                            <li>
+                                <a href=" https://www.facebook.com/Partap-Bhatti-Realtor-812776012188213/?notif_t=fbpage_fan_invite¬if_id=1464299174710852">
+                                    <img src="images/fb_icon.png" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/gugle_icon.png" /></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/partap-bhatti-93642167">
+                                    <img src="images/linkedin_icon.png" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="latst_srch_bg">
+            <div class="container">
+                <div class="row frnt_line_cls">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="ltst_srch_sct">
+                            <div class="input_srch_new">
+                                <div class="In_bg_new">
+                                    <uc:SearchBar ID="SearchBar1" runat="server" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_sct_bg">
+            <div class="container">
+                <div class="main_sction">
+                    <div class="row frnt_line_cls">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="frnt_heading_txt">
+                                <h2 class="highlight_hdng">Welcome to my website</h2>
+                                <p>
+                                 Here you'll find the resources to assist you with all 
+                                 your Real Estate needs whether it is Residential or Commercial in and around GTA, We know the importance of
+                                 Decision to buy your home that's why we feel great pride satisfaction to help you to own your dream home. Whether 
+                                 you are first time home buyer, looking to sell your home and experience investor, We can provide you comprehensive 
+                                 real estate solutions, please give us a call or drop by the office.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row frnt_line_cls">
+                        <div class="col-md-9 col-sm-9">
+                            <div class="Residential_section_bg">
+                                <div class="row frnt_line_cls">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="frnt_pge_hdng">
+                                            <h3>
+                                                <asp:Label ID="lblresi" src="slider/images/school-img.png" CssClass="header_middle_1" runat="server" Text="Residential Listings"></asp:Label>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Toronto" title="Toronto">
+                                                    <asp:HyperLink ID="hlresi1" runat="server">
+                                                        <asp:Image ID="imgresi1" runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="resicity1" runat="server">Toronto</asp:Label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Mississauga" title="Mississauga">
+                                                    <asp:HyperLink ID="hlresi2" runat="server">
+                                                        <asp:Image ID="imgresi2" runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="resicity2" runat="server">Mississauga</asp:Label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Brampton" title="Brampton">
+                                                    <asp:HyperLink ID="hlresi3" runat="server">
+                                                        <asp:Image ID="imgresi3" runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="resicity3" runat="server">Brampton</asp:Label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Residential_section_bg">
+                                <div class="row frnt_line_cls">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="frnt_pge_hdng">
+                                            <h3>
+                                                <asp:Label ID="Label2" runat="server" CssClass="header_middle_1" Text="Commercial Listings"></asp:Label></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Toronto" title="Toronto">
+                                                    <asp:HyperLink ID="hlcom1" runat="server">
+                                                        <asp:Image ID="imgcomm1" runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="commcity1" runat="server">Toronto</asp:Label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Mississauga" title="Mississauga">
+                                                    <asp:HyperLink ID="hlcom2" runat="server">
+                                                        <asp:Image ID="imgcomm2" runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="commcity2" runat="server">Mississauga</asp:Label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Brampton" title="Brampton">
+                                                    <asp:HyperLink ID="hlcom3" runat="server">
+                                                        <asp:Image ID="imgcomm3" src='<%# Eval("pImage")%>' runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="commcity3" runat="server">Brampton</asp:Label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Residential_section_bg">
+                                <div class="row frnt_line_cls">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="frnt_pge_hdng">
+                                            <h3>
+                                                <asp:Label ID="Label3" CssClass="header_middle_1" runat="server" Text="Condo Listings"></asp:Label></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Toronto" title="Toronto">
+                                                    <asp:HyperLink ID="hlcon1" runat="server">
+                                                        <asp:Image ID="imgcondo1" runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="condocity1" runat="server">Toronto</asp:Label></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Mississauga" title="Mississauga">
+                                                    <asp:HyperLink ID="hlcon2" runat="server">
+                                                        <asp:Image ID="imgcondo2" src='<%# Eval("pImage")%>' runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="condocity2" runat="server">Mississauga</asp:Label></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="Residential_section">
+                                            <div class="Residential_section_box">
+                                                <a href="../Search.aspx?Municipality=Brampton" title="Brampton">
+                                                    <asp:HyperLink ID="hlcon3" runat="server">
+                                                        <asp:Image ID="imgcondo3" src='<%# Eval("pImage")%>' runat="server" />
+                                                    </asp:HyperLink>
+                                                    <asp:Label ID="condocity3" runat="server">Brampton</asp:Label></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="frnt_right_sde">
+                                <div class="fturd_prprty">
+                                    <div class="fturd_sctn_box">
+                                        <a href="Featured_Properties.aspx" title="Featured Properties">
+                                            <img src="images/featured_img.jpg" alt="" title="" />
+                                            <span>Featured Properties</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="cntct_box_frnt">
+                                    <div class="frnt_cntct_hdng">
+                                        <h3>Contact us</h3>
+                                    </div>
+                                    <div class="frnt_cntct_bb">
+                                       
+
+
+
+
+                                        <div class="agent_input">
+    <p>
+        First Name: </p><asp:RequiredFieldValidator ID="reqFirstName" runat="server" ErrorMessage="*"
+            ControlToValidate="txtFirstName" ValidationGroup="SaveContactInfo" ForeColor="Red"
+            Display="Dynamic"></asp:RequiredFieldValidator>
+   
+    <asp:TextBox ID="txtFirstName" CssClass="CTextBox" runat="server" PlaceHolder="First Name" MaxLength="20"></asp:TextBox>
+    
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
+        ControlToValidate="txtFirstName" ErrorMessage="Only alphabets are allowed"
+        ForeColor="Red" Display="Dynamic" ValidationExpression="^[a-zA-Z ]+$"> </asp:RegularExpressionValidator>
+</div>
+<div class="agent_input">
+    <p>
+        Last Name: </p>
+        <asp:RequiredFieldValidator ID="reqLastName" runat="server" ErrorMessage="*" ControlToValidate="txtLastName"
+            ValidationGroup="SaveContactInfo" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+   
+    <asp:TextBox ID="txtLastName" CssClass="CTextBox" MaxLength="20" runat="server" PlaceHolder="Last Name"></asp:TextBox>
+  
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+        ControlToValidate="txtLastName" ErrorMessage="Only alphabets are allowed"
+        ForeColor="Red" Display="Dynamic" ValidationExpression="^[a-zA-Z ]+$"> </asp:RegularExpressionValidator>
+</div>
+<div class="agent_input">
+    <p>
+        E-mail:
+      </p> <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ForeColor="Red" ValidationGroup="SaveContactInfo" Display="Dynamic" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtEmail" CssClass="CTextBox" runat="server" PlaceHolder="Email"></asp:TextBox>
+       
+        <asp:RegularExpressionValidator ID="rgeEmail" runat="server" ValidationGroup="SaveContactInfo" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+            ControlToValidate="txtEmail" ForeColor="Red" ErrorMessage="Invalid email address." />
+</div>
+<div class="agent_input">
+    <p>
+        Phone Number: 
+        </p>       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ForeColor="Red" runat="server" ValidationGroup="SaveContactInfo" Display="Dynamic" ControlToValidate="txtPhoneno" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtPhoneno" CssClass="CTextBox" MaxLength="10" runat="server" PlaceHolder="Phone Number"></asp:TextBox>
+   
+      
+        <asp:RegularExpressionValidator ID="regPhone" ValidationGroup="SaveContactInfo" runat="server" ControlToValidate="txtPhoneno"
+            ValidationExpression="^(\(\d{3}\) \d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10})$"
+            Text="Enter a valid phone number" Display="Dynamic" ForeColor="Red" />
+</div>
+<div class="agent_input">
+    <p>
+        Message: </p>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*"
+        ControlToValidate="txtMessage" ValidationGroup="SaveContactInfo" ForeColor="Red"
+        Display="Dynamic"></asp:RequiredFieldValidator>
+   
+    <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Height="90px" PlaceHolder="Message"></asp:TextBox>
+</div>
+<div class="agent_input">
+      <asp:UpdatePanel ID="UP1" runat="server">
+                        <ContentTemplate>
+                            <table>
+                                <tr>
+                                    <td style="height: 50px; width: 100px;">
+                                        <asp:Image ID="imgCaptcha" runat="server" />
+                                    </td>
+                                    <td valign="middle">
+                                         <asp:LinkButton ID="btnRefresh" runat="server" OnClick="btnRefresh_Click"> <img src="../img/refresh.png" /></asp:LinkButton>
+
+                                        <asp:HiddenField ID="hdnCaptcha" runat="server" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                                         <asp:TextBox ID="txtCaptcha" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtCaptchaCmp" runat="server" Width="200px" Style="display:none" ></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"
+        ControlToValidate="txtCaptcha" ValidationGroup="SaveContactInfo" ForeColor="Red"
+        Display="Dynamic"></asp:RequiredFieldValidator>
+                                        <%-- <asp:Button ID="btnsubmit" runat="server" Text="Save" OnClick="btnsubmit_Click" />
+                    &nbsp;&nbsp;<asp:Button ID="btnReset" Text="Reset" runat="server" />--%>
+                                        <asp:CompareValidator runat="server" id="cmpNumbers" controltovalidate="txtCaptcha" controltocompare="txtCaptchaCmp" 
+                                             Type = "String" Operator="Equal" ValidationGroup="SaveContactInfo" ForeColor="Red"
+            Display="Dynamic" errormessage="Invalid Captcha Code" /><br />
+                                            <span style="color: Red; font-weight: bold">
+                        <asp:Label ID="lblErrorMsg" runat="server"></asp:Label></span>
+</div>
+
+
+<div style="margin: 0 0 50px 0">
+    <asp:Label ID="lblResult" runat="server" ForeColor="Red"></asp:Label>
+    <asp:Button ID="btnSend" runat="server" Text="Send" CssClass="Sendbutton" Width="24%"
+        UseSubmitBehavior="false" ValidationGroup="SaveContactInfo" OnClick="btnSend_Click" />
+</div>
+
+
+
+
+
+                                      <%-- <uc:ContactInfo ID="cnt" runat="server" />--%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="containerdiv">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <%--<div class="fuuter_bg" id="one-footer">
+        <div class="container">
+            <div class="col-md-4 col-sm-4">
+                <figure class="logo">
+                    <uc:Logo ID="logo1" runat="server" />
+                </figure>
+            </div>
+            <div class="col-md-4 col-sm-4">
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="fuuter_name">
+                    <h5>Contact Info</h5>
+                </div>
+                <div class="fuuter_map">
+                  
+                    <p>
+                        170 STEELWELL ROAD #200<br />
+                        BRAMPTON L6T 5T3 ON
+                    </p>
+                  
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="Designed_and_Developed">
+                    <div>
+                        <b>Designed & Developed by <a href="http://only4agents.com/">Only4agents</a>
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+<div class="fuuter_bg" id="one-footer">
+        <div class="container">
+            <div class="futer_sctnn">
+                <div class="col-md-8 col-sm-8">
+                    <div class="futer_mennu">
+                        <ul>
+                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="../StaticPages.aspx?PageID=22">Sellers</a></li>
+                            <li><a href="../Buyers.aspx">Buyers</a></li>
+                            <li><a href="../home_worth.aspx">Home Evaluation</a></li>
+                            <li><a href="../ContactUs.aspx">Contact us</a></li>
+							<li><a href="../admin/adminlogin.aspx">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+               <div class="col-md-4 col-sm-4">
+                <div class="fuuter_name">
+                    <h5>Contact Info</h5>
+                </div>
+                <div class="fuuter_map">
+                  
+                    <p>
+                        170 STEELWELL ROAD #200<br />
+                        BRAMPTON L6T 5T3 ON
+                    </p>
+                  
+                </div>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="Designed_and_Developed">
+                    <div>
+                        <b>Designed & Developed by <a href="http://only4Agents.com/">Only4Agents</a>
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="fuutr_phne_bg">
+            <div class="futer_mail_bg">
+                <div class="futer_mail">
+                    <ul>
+                        <li><a href="mailto:partapbhatti@gmail.com">
+                            <img alt="" src="images/mail_icnnn.png" /></a></li>
+                        <li><a href="tel:647-203-2103">
+                            <img alt="" src="images/mbl_icnnn.png" /></a></li>
+                        <li><a href="sms:647-203-2103">
+                            <img alt="" src="images/sms.png" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+     <script>
+         $(document).ready(function () {
+             debugger;
+             //$("#txtCaptcha").focusout(function () {
+             //    debugger;
+             //    var captcha = $("#txtCaptcha").val();
+             //    var orig = $("#hdnCaptcha").val();
+             //    if(captcha!=orig)
+             //    {
+             //        $("#lblErrorMsg").val = "Invalid Captcha Code";
+             //        return false;
+             //    }
+             //});
+         });
+     </script>
+</body>
+
+</html>
